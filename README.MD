@@ -168,14 +168,14 @@ public class Experimental
 Создать собственный класс проверки существования можно создав класс реализующий интерфейс "Existable".
 
 ```java
-import Existable;
+import dev.kalenchukov.fieldvaluevalidator.interfaces.Existable;
 
 public class GenderExistence implements Existable<String>
 {
 	@Override
 	public boolean exists(@NotNull String value)
 	{
-		return value.equals("MALE") || value.equals("FEMALE");
+		return "MALE".equals(value) || "FEMALE".equals(value);
 	}
 }
 ```
@@ -202,14 +202,16 @@ public class Experimental
 Создать собственный класс проверки корректности можно создав класс реализующий интерфейс "Validable".
 
 ```java
-import Validable;
+import dev.kalenchukov.fieldvaluevalidator.interfaces.Validable;
+
+import java.util.Objects;
 
 public class BrowserValidator implements Validable<String>
 {
 	@Override
 	public boolean valid(@NotNull final String value)
 	{
-		return value.equals("FIREFOX") || value.equals("CHROME");
+		return "FIREFOX".equals(value) || "CHROME".equals(value);
 	}
 }
 ```
@@ -229,22 +231,22 @@ public class Experimental
 {
     @NoNull
     private Long id = null;
-	
-	@NoEmpty
-	private String message = "";
-	
-	@Length(min = 10, max = 13)
-	private String comment = "значение";
-	
-	@Size(min = 5, max = 10)
-	private Integer[] days = {1, 2, 3};
+    
+    @NoEmpty
+    private String message = "";
+    
+    @Length(min = 10, max = 13)
+    private String comment = "значение";
+    
+    @Size(min = 5, max = 10)
+    private Integer[] days = {1, 2, 3};
 }
 ```
 
 Проверка всех полей класса и возврат нарушений:
 ```java
-FieldValueValidating fieldValueValidating = new FieldValueValidator();
-List<Violating> violations = fieldValueValidating.validate(new Experimental());
+FieldValueValidating fieldValueValidator = new FieldValueValidator();
+List<Violating> violations = fieldValueValidator.validate(new Experimental());
 
 /*
 Результат выполнения:
@@ -275,9 +277,9 @@ List<Violating> violations = fieldValueValidating.validate(new Experimental());
 
 Проверка всех полей класса и возврат первого найденного нарушения:
 ```java
-FieldValueValidating fieldValueValidating = new FieldValueValidator();
-fieldValueValidating.setPushy(false);
-List<Violating> violations = fieldValueValidating.validate(new Experimental());
+FieldValueValidating fieldValueValidator = new FieldValueValidator();
+fieldValueValidator.setPushy(false);
+List<Violating> violations = fieldValueValidator.validate(new Experimental());
 
 /*
 Результат выполнения:
