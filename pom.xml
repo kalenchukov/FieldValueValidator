@@ -15,7 +15,7 @@
 	<version>1.0.0</version>
 
 	<name>FieldValueValidator</name>
-	<description>Проверяющий значения полей класса</description>
+	<description>Проверка значений полей класса</description>
 	<url>https://github.com/kalenchukov/FieldValueValidator</url>
 
 	<licenses>
