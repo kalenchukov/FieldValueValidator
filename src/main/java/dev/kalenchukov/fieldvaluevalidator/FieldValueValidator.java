@@ -205,26 +205,18 @@ public class FieldValueValidator implements FieldValueValidating
 	{
 		Map<String, Validating> validators = new LinkedHashMap<>();
 
-		// Проверка присутствия обязательных параметров
 		validators.put(NoNull.class.getName(), new NoNullValidator(this.locale));
-		// Проверка параметров на пустоту
 		validators.put(NoEmpty.class.getName(), new NoEmptyValidator(this.locale));
-		// Проверка на количество переданных значений в каждом параметре
 		validators.put(Size.class.getName(), new SizeValidator(this.locale));
-		// Проверка на минимальное и максимальное количество символов
 		validators.put(Length.class.getName(), new LengthValidator(this.locale));
-		// Проверка на язык
 		validators.put(Language.class.getName(), new LanguageValidator(this.locale));
-		// Проверка на минимальное и максимальное значение целого числа
 		validators.put(Number.class.getName(), new NumberValidator(this.locale));
-		// Проверка на минимальное и максимальное значение дробного числа
 		validators.put(NumberFloat.class.getName(), new NumberFloatValidator(this.locale));
-		// Проверка значения на соответствие шаблону регулярного выражения
 		validators.put(Pattern.class.getName(), new PatternValidator(this.locale));
-		// Персонализированная проверка корректности значений параметров
+
 		validators.put(Valid.class.getName(), new ValidValidator(this.locale));
 		validators.put(Valid.ManyValid.class.getName(), new ValidValidator(this.locale));
-		// Проверка существования значений параметров
+
 		validators.put(Exist.class.getName(), new ExistValidator(this.locale));
 		validators.put(Exist.ManyExist.class.getName(), new ExistValidator(this.locale));
 
