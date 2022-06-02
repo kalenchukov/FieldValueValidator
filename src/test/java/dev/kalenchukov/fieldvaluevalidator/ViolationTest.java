@@ -44,4 +44,34 @@ public class ViolationTest
 
 		assertFalse(violation1.equals(violation2));
 	}
+
+	/**
+	 * Проверка одинаковых объектов.
+	 */
+	@Test
+	public void testHashCode1()
+	{
+		Map<String, String> params = new HashMap<>();
+		params.put("%FIELD%", "id");
+
+		Violating violation1 = new Violation("id", "Сообщение", params);
+		Violating violation2 = new Violation("id", "Сообщение", params);
+
+		assertEquals(violation1.hashCode(), violation2.hashCode());
+	}
+
+	/**
+	 * Проверка разных объектов.
+	 */
+	@Test
+	public void testHashCode2()
+	{
+		Map<String, String> params = new HashMap<>();
+		params.put("%FIELD%", "id");
+
+		Violating violation1 = new Violation("id", "Сообщение", params);
+		Violating violation2 = new Violation("name", "Сообщение", params);
+
+		assertNotEquals(violation1.hashCode(), violation2.hashCode());
+	}
 }

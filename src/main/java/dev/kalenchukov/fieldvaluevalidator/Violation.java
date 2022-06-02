@@ -121,6 +121,18 @@ public final class Violation implements Violating
 		return true;
 	}
 
+	@Override
+	public int hashCode()
+	{
+		int result = 0;
+
+		result = 31 * result + this.getField().hashCode();
+		result = 31 * result + this.getMessage().hashCode();
+		result = 31 * result + this.getParams().hashCode();
+
+		return result;
+	}
+
 	@NotNull
 	@Override
 	public String toString()
