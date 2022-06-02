@@ -42,7 +42,7 @@ public class FieldValueValidator implements FieldValueValidating
 	private static final Logger LOG = Logger.getLogger(FieldValueValidator.class);
 
 	/**
-	 * локализованные тексты логирования.
+	 * Локализованные тексты логирования.
 	 */
 	@NotNull
 	private ResourceBundle localeLogs = ResourceBundle.getBundle("localizations/logs", this.locale);
