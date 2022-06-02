@@ -6,11 +6,11 @@
 
 package dev.kalenchukov.fieldvaluevalidator;
 
-import dev.kalenchukov.stringformat.StringFormat;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.UnmodifiableView;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -58,7 +58,7 @@ public final class Violation implements Violating
 
 		this.field = field;
 		this.message = message;
-		this.params = params;
+		this.params = new HashMap<>(params);
 	}
 
 	/**
@@ -87,6 +87,38 @@ public final class Violation implements Violating
 	public Map<@NotNull String, @NotNull String> getParams()
 	{
 		return Collections.unmodifiableMap(this.params);
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj == null) {
+			return false;
+		}
+
+		if (this == obj) {
+			return true;
+		}
+
+		if (this.getClass() != obj.getClass()) {
+			return false;
+		}
+
+		Violation violation = (Violation) obj;
+
+		if (!Objects.equals(this.getField(), violation.getField())) {
+			return false;
+		}
+
+		if (!Objects.equals(this.getMessage(), violation.getMessage())) {
+			return false;
+		}
+
+		if (!Objects.equals(this.getParams(), violation.getParams())) {
+			return false;
+		}
+
+		return true;
 	}
 
 	@NotNull
