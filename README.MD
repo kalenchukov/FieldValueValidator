@@ -253,22 +253,22 @@ List<Violating> violations = fieldValueValidator.validate(new Experimental());
 [
     Violation {
         field='id', 
-        message='Значение поля 'id' не должно быть null', 
+        message='Значение поля '%FIELD%' не должно быть null', 
         params={FIELD=id}
     },
     Violation {
         field='message', 
-        message='Значение поля 'message' не должно быть пустым', 
+        message='Значение поля '%FIELD%' не должно быть пустым', 
         params={FIELD=message}
     }, 
     Violation {
         field='comment', 
-        message='Количество символов значения поля 'comment' должно быть больше 10', 
+        message='Количество символов значения поля '%FIELD%' должно быть больше %MIN%', 
         params={MIN=10, MAX=13, FIELD=comment}
     }, 
     Violation {
         field='days', 
-        message='Количество элементов поля 'days' должны быть больше 5', 
+        message='Количество элементов поля '%FIELD%' должны быть больше %MIN%', 
         params={MIN=5, MAX=10, FIELD=days}
     }
 ]
@@ -286,7 +286,7 @@ List<Violating> violations = fieldValueValidator.validate(new Experimental());
 [
     Violation {
         field='id', 
-        message='Значение поля 'id' не должно быть null', 
+        message='Значение поля '%FIELD%' не должно быть null', 
         params={FIELD=id}
     }
 ]

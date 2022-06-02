@@ -79,6 +79,6 @@ public class FieldValueValidatorTest
 
 		List<Violating> violation = FIELD_VALUE_VALIDATOR.validate(new Experimental());
 
-		assertEquals("Некорректный формат языка в поле класса 'language1'", violation.get(0).getMessage());
+		assertEquals("Некорректный формат языка в поле класса '%FIELD%'", violation.get(0).getMessage());
 	}
 }

@@ -57,7 +57,7 @@ public final class Violation implements Violating
 		Objects.requireNonNull(params);
 
 		this.field = field;
-		this.message = StringFormat.format(message, params);
+		this.message = message;
 		this.params = params;
 	}
 
