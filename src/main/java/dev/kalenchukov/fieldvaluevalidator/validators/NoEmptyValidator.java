@@ -95,6 +95,9 @@ public final class NoEmptyValidator extends AbstractValidator
 	 */
 	private boolean isValidString(@NotNull final NoEmpty constraint, @NotNull final String value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, value);
 	}
 
@@ -108,6 +111,9 @@ public final class NoEmptyValidator extends AbstractValidator
 	 */
 	private boolean isValidAbstract(@NotNull final NoEmpty constraint, @NotNull final String value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		boolean empty = false;
 
 		if (constraint.allowSpace()) {

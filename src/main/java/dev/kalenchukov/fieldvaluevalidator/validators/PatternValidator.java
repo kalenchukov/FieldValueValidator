@@ -35,6 +35,8 @@ public final class PatternValidator extends AbstractValidator
 	@Override
 	public Violating valid(@NotNull final Field field, @Nullable final Object value)
 	{
+		Objects.requireNonNull(field);
+
 		Pattern constraint = field.getDeclaredAnnotation(Pattern.class);
 
 		boolean valid = this.isValid(field, constraint, value);
@@ -99,6 +101,9 @@ public final class PatternValidator extends AbstractValidator
 	 */
 	private boolean isValidCharacter(@NotNull final Pattern constraint, @NotNull final Character value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, String.valueOf(value));
 	}
 
@@ -111,6 +116,9 @@ public final class PatternValidator extends AbstractValidator
 	 */
 	private boolean isValidString(@NotNull final Pattern constraint, @NotNull final String value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, value);
 	}
 
@@ -124,6 +132,9 @@ public final class PatternValidator extends AbstractValidator
 	 */
 	private boolean isValidAbstract(@NotNull final Pattern constraint, @NotNull final String value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		if (!value.matches(constraint.regexp()))
 		{
 			this.setMessage(StringFormat.format(

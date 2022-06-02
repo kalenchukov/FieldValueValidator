@@ -38,6 +38,8 @@ public final class ExistValidator extends AbstractValidator
 	@Override
 	public Violating valid(@NotNull final Field field, @Nullable final Object value)
 	{
+		Objects.requireNonNull(field);
+
 		Exist[] constraints = field.getDeclaredAnnotationsByType(Exist.class);
 
 		for (Exist constraint : constraints)

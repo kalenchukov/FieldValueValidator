@@ -35,6 +35,8 @@ public final class NumberValidator extends AbstractValidator
 	@Override
 	public Violating valid(@NotNull final Field field, @Nullable final Object value)
 	{
+		Objects.requireNonNull(field);
+
 		Number constraint = field.getDeclaredAnnotation(Number.class);
 
 		boolean valid = this.isValid(field, constraint, value);
@@ -107,6 +109,9 @@ public final class NumberValidator extends AbstractValidator
 	 */
 	private boolean isValidInteger(@NotNull final Number constraint, @NotNull final Integer value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, Long.valueOf(value));
 	}
 
@@ -119,6 +124,9 @@ public final class NumberValidator extends AbstractValidator
 	 */
 	private boolean isValidShort(@NotNull final Number constraint, @NotNull final Short value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, Long.valueOf(value));
 	}
 
@@ -131,6 +139,9 @@ public final class NumberValidator extends AbstractValidator
 	 */
 	private boolean isValidByte(@NotNull final Number constraint, @NotNull final Byte value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, Long.valueOf(value));
 	}
 
@@ -143,6 +154,9 @@ public final class NumberValidator extends AbstractValidator
 	 */
 	private boolean isValidLong(@NotNull final Number constraint, @NotNull final Long value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, value);
 	}
 
@@ -156,6 +170,9 @@ public final class NumberValidator extends AbstractValidator
 	 */
 	private boolean isValidAbstract(@NotNull final Number constraint, @NotNull final Long value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		if (value < constraint.min())
 		{
 			this.setMessage(StringFormat.format(

@@ -41,6 +41,8 @@ public final class ValidValidator extends AbstractValidator
 	@Override
 	public Violating valid(@NotNull final Field field, @Nullable final Object value)
 	{
+		Objects.requireNonNull(field);
+
 		Valid[] constraints = field.getDeclaredAnnotationsByType(Valid.class);
 
 		for (Valid constraint : constraints)

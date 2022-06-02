@@ -35,6 +35,8 @@ public final class SizeValidator extends AbstractValidator
 	@Override
 	public Violating valid(@NotNull final Field field, @Nullable final Object value)
 	{
+		Objects.requireNonNull(field);
+
 		Size constraint = field.getDeclaredAnnotation(Size.class);
 
 		boolean valid = this.isValid(field, constraint, value);
@@ -103,6 +105,9 @@ public final class SizeValidator extends AbstractValidator
 	 */
 	private boolean isValidMap(@NotNull final Size constraint, @NotNull final Map<?, ?> value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, value.size());
 	}
 
@@ -115,6 +120,9 @@ public final class SizeValidator extends AbstractValidator
 	 */
 	private boolean isValidCollection(@NotNull final Size constraint, @NotNull final Collection<?> value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, value.size());
 	}
 
@@ -127,6 +135,9 @@ public final class SizeValidator extends AbstractValidator
 	 */
 	private boolean isValidArray(@NotNull final Size constraint, @NotNull final Object value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, Array.getLength(value));
 	}
 
@@ -140,6 +151,8 @@ public final class SizeValidator extends AbstractValidator
 	 */
 	private boolean isValidAbstract(@NotNull final Size constraint, @NotNull final Integer length)
 	{
+		Objects.requireNonNull(constraint);
+
 		if (length < constraint.min())
 		{
 			this.setMessage(StringFormat.format(

@@ -35,6 +35,8 @@ public final class NumberFloatValidator extends AbstractValidator
 	@Override
 	public Violating valid(@NotNull final Field field, @Nullable final Object value)
 	{
+		Objects.requireNonNull(field);
+
 		NumberFloat constraint = field.getDeclaredAnnotation(NumberFloat.class);
 
 		boolean valid = this.isValid(field, constraint, value);
@@ -97,6 +99,9 @@ public final class NumberFloatValidator extends AbstractValidator
 	 */
 	private boolean isValidFloat(@NotNull final NumberFloat constraint, @NotNull final Float value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, Double.valueOf(value));
 	}
 
@@ -109,6 +114,9 @@ public final class NumberFloatValidator extends AbstractValidator
 	 */
 	private boolean isValidDouble(@NotNull final NumberFloat constraint, @NotNull final Double value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, value);
 	}
 
@@ -122,6 +130,9 @@ public final class NumberFloatValidator extends AbstractValidator
 	 */
 	private boolean isValidAbstract(@NotNull final NumberFloat constraint, @NotNull final Double value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		if (value < constraint.min())
 		{
 			this.setParam("MIN", String.valueOf(constraint.min()));

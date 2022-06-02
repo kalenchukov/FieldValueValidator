@@ -97,6 +97,9 @@ public final class LengthValidator extends AbstractValidator
 	 */
 	private boolean isValidString(@NotNull final Length constraint, @NotNull final String value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, value);
 	}
 
@@ -110,6 +113,9 @@ public final class LengthValidator extends AbstractValidator
 	 */
 	private boolean isValidAbstract(@NotNull final Length constraint, @NotNull final String value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		if (value.length() < constraint.min())
 		{
 			this.setMessage(StringFormat.format(

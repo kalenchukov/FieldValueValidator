@@ -38,6 +38,8 @@ public final class LanguageValidator extends AbstractValidator
 	@Override
 	public Violating valid(@NotNull final Field field, @Nullable final Object value)
 	{
+		Objects.requireNonNull(field);
+
 		Language constraint = field.getDeclaredAnnotation(Language.class);
 
 		boolean valid = this.isValid(field, constraint, value);
@@ -96,6 +98,9 @@ public final class LanguageValidator extends AbstractValidator
 	 */
 	private boolean isValidString(@NotNull final Language constraint, @NotNull final String value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		return this.isValidAbstract(constraint, value);
 	}
 
@@ -109,6 +114,9 @@ public final class LanguageValidator extends AbstractValidator
 	 */
 	private boolean isValidAbstract(@NotNull final Language constraint, @NotNull final String value)
 	{
+		Objects.requireNonNull(constraint);
+		Objects.requireNonNull(value);
+
 		if (!value.matches("[a-z]{2}-[A-Z]{2}"))
 		{
 			this.setMessage(StringFormat.format(
