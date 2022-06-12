@@ -26,7 +26,10 @@ public final class SizeValidator extends AbstractValidator
 	/**
 	 * @see AbstractValidator#AbstractValidator(Locale)
 	 */
-	public SizeValidator(@NotNull final Locale locale) {super(locale);}
+	public SizeValidator(@NotNull final Locale locale)
+	{
+		super(Objects.requireNonNull(locale));
+	}
 
 	/**
 	 * @see Validating#valid(Field, Object)

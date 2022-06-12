@@ -22,8 +22,6 @@ public class UnsupportedFieldTypeException extends RuntimeException
 	 */
 	public UnsupportedFieldTypeException(@NotNull final String message)
 	{
-		super(message);
-
-		Objects.requireNonNull(message);
+		super(Objects.requireNonNull(message));
 	}
 }

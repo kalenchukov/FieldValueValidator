@@ -31,7 +31,7 @@ public final class ValidValidator extends AbstractValidator
 	 */
 	public ValidValidator(@NotNull final Locale locale)
 	{
-		super(locale);
+		super(Objects.requireNonNull(locale));
 	}
 
 	/**

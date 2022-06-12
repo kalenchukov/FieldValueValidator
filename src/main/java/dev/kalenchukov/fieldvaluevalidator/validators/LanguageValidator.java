@@ -28,7 +28,7 @@ public final class LanguageValidator extends AbstractValidator
 	 */
 	public LanguageValidator(@NotNull final Locale locale)
 	{
-		super(locale);
+		super(Objects.requireNonNull(locale));
 	}
 
 	/**

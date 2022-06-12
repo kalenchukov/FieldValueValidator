@@ -26,7 +26,10 @@ public final class NumberValidator extends AbstractValidator
 	/**
 	 * @see AbstractValidator#AbstractValidator(Locale)
 	 */
-	public NumberValidator(@NotNull final Locale locale) {super(locale);}
+	public NumberValidator(@NotNull final Locale locale)
+	{
+		super(Objects.requireNonNull(locale));
+	}
 
 	/**
 	 * @see Validating#valid(Field, Object)

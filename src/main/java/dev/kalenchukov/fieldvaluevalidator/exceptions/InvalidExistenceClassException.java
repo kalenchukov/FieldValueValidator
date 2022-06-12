@@ -22,8 +22,6 @@ public class InvalidExistenceClassException extends RuntimeException
 	 */
 	public InvalidExistenceClassException(@NotNull final String message)
 	{
-		super(message);
-
-		Objects.requireNonNull(message);
+		super(Objects.requireNonNull(message));
 	}
 }

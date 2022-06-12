@@ -26,7 +26,10 @@ public final class PatternValidator extends AbstractValidator
 	/**
 	 * @see AbstractValidator#AbstractValidator(Locale)
 	 */
-	public PatternValidator(@NotNull final Locale locale) {super(locale);}
+	public PatternValidator(@NotNull final Locale locale)
+	{
+		super(Objects.requireNonNull(locale));
+	}
 
 	/**
 	 * @see Validating#valid(Field, Object)

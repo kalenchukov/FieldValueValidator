@@ -29,7 +29,10 @@ public final class ExistValidator extends AbstractValidator
 	/**
 	 * @see AbstractValidator#AbstractValidator(Locale)
 	 */
-	public ExistValidator(@NotNull final Locale locale) {super(locale);}
+	public ExistValidator(@NotNull final Locale locale)
+	{
+		super(Objects.requireNonNull(locale));
+	}
 
 	/**
 	 * @see Validating#valid(Field, Object)

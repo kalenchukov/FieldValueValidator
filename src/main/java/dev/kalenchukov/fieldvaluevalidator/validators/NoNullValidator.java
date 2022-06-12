@@ -27,7 +27,7 @@ public final class NoNullValidator extends AbstractValidator
 	 */
 	public NoNullValidator(@NotNull final Locale locale)
 	{
-		super(locale);
+		super(Objects.requireNonNull(locale));
 	}
 
 	/**

@@ -26,7 +26,10 @@ public final class NoEmptyValidator extends AbstractValidator
 	/**
 	 * @see AbstractValidator#AbstractValidator(Locale)
 	 */
-	public NoEmptyValidator(@NotNull final Locale locale) {super(locale);}
+	public NoEmptyValidator(@NotNull final Locale locale)
+	{
+		super(Objects.requireNonNull(locale));
+	}
 
 	/**
 	 * @see Validating#valid(Field, Object)
