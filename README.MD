@@ -1,4 +1,4 @@
-# FieldValueValidator
+# Lemna Validation
 Проверка значений полей класса.
 
 ## Аннотации
@@ -168,7 +168,7 @@ public class Experimental
 Создать собственный класс проверки существования можно создав класс реализующий интерфейс "Existable".
 
 ```java
-import dev.kalenchukov.fieldvaluevalidator.interfaces.Existable;
+import Existable;
 
 public class GenderExistence implements Existable<String>
 {
@@ -202,9 +202,7 @@ public class Experimental
 Создать собственный класс проверки корректности можно создав класс реализующий интерфейс "Validable".
 
 ```java
-import dev.kalenchukov.fieldvaluevalidator.interfaces.Validable;
-
-import java.util.Objects;
+import Validable;
 
 public class BrowserValidator implements Validable<String>
 {

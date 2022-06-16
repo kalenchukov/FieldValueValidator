@@ -11,12 +11,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>dev.kalenchukov</groupId>
-	<artifactId>field-value-validator</artifactId>
-	<version>1.0.0</version>
+	<artifactId>lemna-validation</artifactId>
+	<version>1.1.0</version>
 
-	<name>FieldValueValidator</name>
+	<name>Lemna Validation</name>
 	<description>Проверка значений полей класса</description>
-	<url>https://github.com/kalenchukov/FieldValueValidator</url>
+	<url>https://github.com/kalenchukov/LemnaValidation</url>
 
 	<licenses>
 		<license>
@@ -35,8 +35,8 @@
 	</developers>
 
 	<properties>
-		<maven.compiler.source>16</maven.compiler.source>
-		<maven.compiler.target>16</maven.compiler.target>
+		<maven.compiler.source>18</maven.compiler.source>
+		<maven.compiler.target>18</maven.compiler.target>
 		<encoding>UTF-8</encoding>
 	</properties>
 
